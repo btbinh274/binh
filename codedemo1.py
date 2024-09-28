@@ -2,15 +2,21 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-# Load the seaborn dataset
-mpg_df = sns.load_dataset("mpg")
+# Import seaborn
+import seaborn as sns
 
-# Display the first few rows of the dataframe
-st.write(mpg_df.head())
+# Apply the default theme
+sns.set_theme()
 
-# Create a scatterplot using Seaborn
-fig, ax = plt.subplots()
-sns.scatterplot(x="weight", y="mpg", data=mpg_df, ax=ax)
+# Load an example dataset
+tips = sns.load_dataset("tips")
+
+# Create a visualization
+sns.relplot(
+    data=tips,
+    x="total_bill", y="tip", col="time",
+    hue="smoker", style="smoker", size="size",
+)
 
 # Display the plot in Streamlit
 st.pyplot(fig)
