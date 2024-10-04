@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
 # Import seaborn
 import seaborn as sns
 
@@ -17,6 +16,5 @@ sns.relplot(
     x="total_bill", y="tip", col="time",
     hue="smoker", style="smoker", size="size",
 )
-
 # Display the plot in Streamlit
 st.pyplot(fig)
